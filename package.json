@@ -4,7 +4,9 @@
   "description": "Fetch images given a url",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "serve":"http-server",
+    "build":"tsc",
+    "watch":"tsc --watch"
   },
   "author": "Rendall",
   "license": "ISC",
