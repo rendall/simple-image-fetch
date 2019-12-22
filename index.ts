@@ -35,14 +35,18 @@ const onURLSubmit = () => {
   document.querySelector(".images-list")!.innerHTML=""
   updateStatus("")
   const input: HTMLInputElement | null = document.querySelector("#imageUrl")
-  const url = input!.value
-  const isUrl = url.match(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/i)
+  const fileExtensions = ["html"]
+  const inputValue = input!.value
+  const isAppendSlash = inputValue.endsWith("/") ? false : !fileExtensions.some(ext => inputValue.endsWith(`.${ext}`))
+  const url = isAppendSlash ? `${inputValue}/` : inputValue;
+  const isUrl = url.match(/^(?:http(s)?:\/\/)[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/i)
   if (!isUrl) {
     updateStatus(`URL '${url}' is invalid. Please be sure to prepend http:// or https:// and append '/' if necessary`);
     return;
   }
-  else fetchAndDisplayImages(url)
-  updateStatus("Fetching images")
+
+  fetchAndDisplayImages(url)
+  updateStatus(`Fetching images from ${url}`)
 }
 
 document.querySelector("#urlSearch")!.addEventListener("click", onURLSubmit)
