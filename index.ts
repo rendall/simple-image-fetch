@@ -44,6 +44,5 @@ const onURLSubmit = () => {
   else fetchAndDisplayImages(url)
 }
 
-document.getElementById("urlSearch")
 document.querySelector("#urlSearch")!.addEventListener("click", onURLSubmit)
 
