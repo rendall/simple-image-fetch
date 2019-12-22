@@ -31,19 +31,20 @@ const displayImage = (src) => {
 };
 // fetchAndDisplayImages displays images at URL 
 const fetchAndDisplayImages = (url) => getImageSources(url)
-    .then((srcs) => Array.isArray(srcs) ? srcs.forEach(src => fetchSingleImage(src, url).then(img => displayImage(img))) : updateStatus(`No images found at ${url}`));
+    .then((srcs) => Array.isArray(srcs) ? srcs.forEach(src => fetchSingleImage(src, url).then(img => displayImage(img))) : updateStatus(`No images found at ${url}`)).then(() => updateStatus("Images fetched"));
 // onURLSubmit is event capture for 'Submit' button click
 const onURLSubmit = () => {
+    document.querySelector(".images-list").innerHTML = "";
     updateStatus("");
     const input = document.querySelector("#imageUrl");
-    const inputValue = input.value;
-    const url = inputValue.endsWith("/") ? inputValue : `${inputValue}/`;
+    const url = input.value;
     const isUrl = url.match(/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/i);
     if (!isUrl) {
-        updateStatus(`URL '${url}' is invalid. Please be sure to prepend http:// or https://`);
+        updateStatus(`URL '${url}' is invalid. Please be sure to prepend http:// or https:// and append '/' if necessary`);
         return;
     }
     else
         fetchAndDisplayImages(url);
+    updateStatus("Fetching images");
 };
 document.querySelector("#urlSearch").addEventListener("click", onURLSubmit);
