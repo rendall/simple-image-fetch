@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    .images-list {
+      display: flex;
+      flex-wrap: wrap;
+      list-style-type: none;
+    }
+
+    .li {
+      list-style-type: none;
+    }
+
+    input {
+      width: 30rem;
+    }
+
+    /* SVGs without dimension display as size 0x0 */
+    img {
+      min-width: 2rem;
+      min-height: 2rem;
+    }
+  </style>
+
+
+<body>
+  <input id="imageUrl" placeholder="Enter a URL" value="https://www.freeimages.com/" type="url">
+  <button id="urlSearch">Submit</button>
+  <p class="status-display">Enter a url above and click submit</p>
+  <ul class="images-list">
+  </ul>
+  <script src="index.js"></script>
+</body>
+
+
+</html>

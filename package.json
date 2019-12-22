@@ -1,0 +1,19 @@
+{
+  "name": "simple-image-fetch",
+  "version": "1.0.0",
+  "description": "Fetch images given a url",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Rendall",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node-fetch": "^2.5.4",
+    "http-server": "^0.12.0",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
