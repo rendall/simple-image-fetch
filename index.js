@@ -21,13 +21,12 @@ const fetchSingleImage = (src, pageUrl, normedSrc) => normedSrc ? fetch(normedSr
     .then(blob => URL.createObjectURL(blob)) : fetchSingleImage(src, pageUrl, normSource(src, pageUrl));
 // Add the image to the document object
 const displayImage = (src) => {
-    var _a;
     const imagesList = document.querySelector(".images-list");
     const listItem = document.createElement("li");
     const image = document.createElement("img");
     image.src = src;
     listItem.appendChild(image);
-    (_a = imagesList) === null || _a === void 0 ? void 0 : _a.append(listItem);
+    imagesList === null || imagesList === void 0 ? void 0 : imagesList.append(listItem);
 };
 // fetchAndDisplayImages displays images at URL 
 const fetchAndDisplayImages = (url) => getImageSources(url)

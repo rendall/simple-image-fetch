@@ -4,18 +4,18 @@
   "description": "Fetch images given a url",
   "main": "index.js",
   "scripts": {
-    "serve":"http-server",
-    "build":"tsc",
-    "watch":"tsc --watch"
+    "serve": "http-server",
+    "build": "tsc",
+    "watch": "tsc --watch"
   },
   "author": "Rendall",
   "license": "ISC",
   "devDependencies": {
-    "@types/node-fetch": "^2.5.4",
-    "http-server": "^0.12.0",
-    "typescript": "^3.7.4"
+    "@types/node-fetch": "^2.5.7",
+    "http-server": "^0.12.3",
+    "typescript": "^3.9.7"
   },
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   }
 }
